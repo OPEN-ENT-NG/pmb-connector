@@ -5,6 +5,7 @@ import fr.openent.pmb.controllers.PmbController;
 import fr.openent.pmb.controllers.SchoolController;
 import fr.openent.pmb.server.PMBServer;
 import fr.wseduc.webutils.email.EmailSender;
+import io.vertx.core.Future;
 import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
@@ -31,8 +32,14 @@ public class Pmb extends BaseServer {
 
     @Override
     public void start(Promise<Void> startPromise) throws Exception {
-        super.start(startPromise);
+      final Promise<Void> promise = Promise.promise();
+      super.start(promise);
+      promise.future()
+        .compose(e -> this.initPmb())
+        .onComplete(startPromise);
+    }
 
+    public Future<Void> initPmb() {
         DB_SCHEMA = config.getString("db-schema");
         SCHOOL_TABLE = DB_SCHEMA + ".etablissement";
 
@@ -42,14 +49,13 @@ public class Pmb extends BaseServer {
         JsonObject exportConfig = config.getJsonObject("export");
         JsonObject PMBConfig = config.getJsonObject("PMB");
         PMBServer.getInstance().init(vertx, PMBConfig);
-        EmailFactory emailFactory = new EmailFactory(vertx, config);
+        EmailFactory emailFactory = EmailFactory.getInstance();
         EmailSender emailSender = emailFactory.getSender();
 
         addController(new PmbController(exportConfig));
         addController(new SchoolController());
         addController(new EmailSendController(emailSender, config.getString("infraMail", null)));
-        startPromise.tryComplete();
-        startPromise.tryFail("[Pmb-connector@Pmb::start] Fail to start Pmb-connector");
+        return Future.succeededFuture();
     }
 
 }
