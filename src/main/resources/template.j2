@@ -4,7 +4,9 @@
     "main" : "fr.openent.pmb.Pmb",
     "probes": [
       "org.entcore.common.http.health.Neo4jProbe",
-      "org.entcore.common.http.health.MongoProbe"
+      "org.entcore.common.http.health.PostgresProbe",
+      "org.entcore.common.http.health.MongoProbe",
+      "org.entcore.common.http.health.RedisProbe"
     ],
     "port" : 8130,
     "app-name" : "Pmb-connector",

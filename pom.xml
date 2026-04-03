@@ -25,6 +25,7 @@
   <properties>
     <toolsVersion>2.0.0-final</toolsVersion>
     <junitVersion>5.1.0</junitVersion>
+    <modPostgresVersion>2.1-separation-SNAPSHOT</modPostgresVersion>
     <entCoreVersion>6.14-separation-SNAPSHOT</entCoreVersion>
     <modMongoVersion>4.1-separation-SNAPSHOT</modMongoVersion>
     <modJsonSchemaValidatorVersion>2.1-SNAPSHOT</modJsonSchemaValidatorVersion>
@@ -40,7 +41,7 @@
     <dependency>
       <groupId>org.entcore</groupId>
       <artifactId>common</artifactId>
-      <version>${entCoreVersion}</version>
+      <version>${entCoreLibsVersion}</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
@@ -73,6 +74,13 @@
       <groupId>com.opendigitaleducation</groupId>
       <artifactId>mod-json-schema-validator</artifactId>
       <version>${modJsonSchemaValidatorVersion}</version>
+      <scope>runtime</scope>
+      <classifier>fat</classifier>
+    </dependency>
+    <dependency>
+      <groupId>fr.wseduc</groupId>
+      <artifactId>mod-postgresql</artifactId>
+      <version>${modPostgresVersion}</version>
       <scope>runtime</scope>
       <classifier>fat</classifier>
     </dependency>
