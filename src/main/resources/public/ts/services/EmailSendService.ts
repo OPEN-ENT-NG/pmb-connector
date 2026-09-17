@@ -1,14 +1,14 @@
 import {idiom, ng, notify} from 'entcore';
-import http, {AxiosResponse} from 'axios';
+import {http, HttpResponse} from 'entcore-toolkit';
 import {School} from '../models';
 
 export interface EmailSendService {
-    send(schools: School[]) : Promise<AxiosResponse>;
+    send(schools: School[]) : Promise<HttpResponse>;
 }
 
 export const emailSendService: EmailSendService = {
 
-    async send(schools: School[]) : Promise<AxiosResponse> {
+    async send(schools: School[]) : Promise<HttpResponse> {
         try {
             return http.post('/pmb/email/send', schools);
         } catch (err) {
