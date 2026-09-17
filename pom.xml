@@ -9,7 +9,7 @@
   </parent>
   <groupId>fr.openent</groupId>
   <artifactId>pmb-connector</artifactId>
-  <version>2.2-SNAPSHOT</version>
+  <version>2.2-develop-axios-SNAPSHOT</version>
   <scm>
     <connection>scm:git:https://github.com/OPEN-ENT-NG/pmb-connector.git</connection>
     <developerConnection>scm:git:https://github.com/OPEN-ENT-NG/pmb-connector.git</developerConnection>
@@ -26,7 +26,7 @@
     <toolsVersion>2.0.0-final</toolsVersion>
     <junitVersion>5.1.0</junitVersion>
     <modPostgresVersion>2.2-SNAPSHOT</modPostgresVersion>
-    <entCoreVersion>6.16-SNAPSHOT</entCoreVersion>
+    <entCoreVersion>6.16-develop-axios-SNAPSHOT</entCoreVersion>
     <modMongoVersion>4.2-SNAPSHOT</modMongoVersion>
     <modJsonSchemaValidatorVersion>2.2-SNAPSHOT</modJsonSchemaValidatorVersion>
     <entCoreLibsVersion>6.16-SNAPSHOT</entCoreLibsVersion>
