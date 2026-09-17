@@ -36,8 +36,6 @@ export class School implements Selectable {
 }
 
 export class Schools extends Selection<School> {
-    all: School[];
-
     constructor() {
         super([]);
     }

@@ -1,17 +1,17 @@
 import {idiom, ng, notify} from 'entcore';
-import http, {AxiosResponse} from 'axios';
+import {http, HttpResponse} from 'entcore-toolkit';
 import {School} from '../models';
 
 export interface SchoolService {
-    list() : Promise<AxiosResponse>;
-    listNeo() : Promise<AxiosResponse>;
-    create(schools: School[]) : Promise<AxiosResponse>;
-    delete(schoolId: number) : Promise<AxiosResponse>;
+    list() : Promise<HttpResponse>;
+    listNeo() : Promise<HttpResponse>;
+    create(schools: School[]) : Promise<HttpResponse>;
+    delete(schoolId: number) : Promise<HttpResponse>;
 }
 
 export const schoolService: SchoolService = {
 
-    async list() : Promise<AxiosResponse> {
+    async list() : Promise<HttpResponse> {
         try {
             return http.get('/pmb/schools');
         } catch (err) {
@@ -20,7 +20,7 @@ export const schoolService: SchoolService = {
         }
     },
 
-    async listNeo() : Promise<AxiosResponse> {
+    async listNeo() : Promise<HttpResponse> {
         try {
             return http.get('/pmb/schools/neo');
         } catch (err) {
@@ -29,7 +29,7 @@ export const schoolService: SchoolService = {
         }
     },
 
-    async create(schools: School[]) : Promise<AxiosResponse> {
+    async create(schools: School[]) : Promise<HttpResponse> {
         try {
             return http.post('/pmb/schools', schools);
         } catch (err) {
@@ -38,7 +38,7 @@ export const schoolService: SchoolService = {
         }
     },
 
-    async delete(schoolId: number) : Promise<AxiosResponse> {
+    async delete(schoolId: number) : Promise<HttpResponse> {
         try {
             return await http.delete(`/pmb/schools/${schoolId}`);
         } catch (err) {
