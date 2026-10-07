@@ -1,6 +1,6 @@
 {
   "name": "Pmb-connector",
-  "version": "2.2.3-dev.1",
+  "version": "2.2.4",
   "description": "Pmb-connector",
   "main": "gulpfile.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "homepage": "",
   "dependencies": {
-    "entcore": "dev",
+    "entcore": "4.8.20",
     "@types/core-js": "0.9.42",
     "awesome-typescript-loader": "3.2.1",
     "core-js": "2.4.1",
@@ -29,7 +29,7 @@
     "webpack": "3.1.0",
     "webpack-stream": "3.2.0",
     "yargs": "^8.0.2",
-    "entcore-toolkit": "2.0.0-dev.3"
+    "entcore-toolkit": "2.0.0"
   },
   "devDependencies": {
     "@types/jquery": "^2.0.34",
